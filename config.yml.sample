@@ -21,8 +21,8 @@ ldapgroupmemberpro: memberUid
 # additional LDAP filters for groups
 ldapgroupfilter: (objectClass=*)
 # the actualy used filters are:
-# (&({ldapmember}=USER)({ldapgroupfilter})) should get all groups where user USER is member
-# (&({ldapgroup}=GROUP)({ldapgroupfilter})) should get the group with the name GROUP
+# (&({ldapgroupmemberpro}=USER)({ldapgroupfilter})) should get all groups where user USER is member
+# (&({ldapgroupnamepro}=GROUP)({ldapgroupfilter})) should get the group with the name GROUP
 
 # purge user, i.e., remove data of the user
 purgeuser: True

@@ -4,6 +4,8 @@ from bioblend import galaxy
 import sys
 
 # TODO check for mail changes
+# TODO add mode that only prints the changes that would be done / interactive mode 
+
 
 def galaxy_users( guc ):
     """
@@ -196,8 +198,9 @@ if __name__ == "__main__":
             sys.stderr.write("delete from group {group} <- {users}\n".format(group=gg, users = ",".join(tmp) ))
 
         # remove the current users of the group 
-        # (update_group seems to be buggy at the moment: lead to duplicates of
+        # (update_group seems to be buggy at the moment: leads to duplicates of
         # user-group associations)
+        # https://github.com/galaxyproject/bioblend/issues/217
         for m in gmem: 
             ggc.delete_group_user( ggroups[gg], gusers[m])
 
