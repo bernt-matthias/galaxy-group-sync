@@ -1,0 +1,28 @@
+--- 
+
+# galaxy URI and API key
+galaxyuri: http://127.0.0.1:8080
+galaxyapikey: GalaxyAPIkey
+
+# LDAP URI, and base strings (for users, and group)
+ldapuri: ldap://dc1.example.com
+ldapuserbase: ou=users,dc=dc1,dc=example,dc=com
+ldapgroupbase: ou=groups,dc=dc1,dc=example,dc=com
+
+# LDAP filter to get all users that should be considered 
+# to get all use (objectClass=*)
+ldapuserfilter: (objectClass=*)
+
+# additional LDAP filter to get groups
+# the group property storing group names
+ldapgroupnamepro: cn
+# the group property storing member names
+ldapgroupmemberpro: memberUid
+# additional LDAP filters for groups
+ldapgroupfilter: (objectClass=*)
+# the actualy used filters are:
+# (&({ldapmember}=USER)({ldapgroupfilter})) should get all groups where user USER is member
+# (&({ldapgroup}=GROUP)({ldapgroupfilter})) should get the group with the name GROUP
+
+# purge user, i.e., remove data of the user
+purgeuser: True
